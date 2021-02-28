@@ -1,0 +1,10 @@
+Host *
+    ServerAliveInterval 60
+
+Host github.com
+    Hostname ssh.github.com
+    User git
+    Port 443
+    ServerAliveInterval 55
+    ForwardAgent yes
+    ProxyCommand corkscrew 127.0.0.1 8888 %h %p

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=X resources load
+Exec=xrdb -load /home/dacheng/.Xresources
+Comment=Load X resources

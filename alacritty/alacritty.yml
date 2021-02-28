@@ -1,0 +1,31 @@
+window:
+    startup_mode: Maximized
+
+font:
+  size: 12.0
+
+colors:
+  cursor:
+    text: '0x000000'
+    cursor: '0xf79800'
+  normal:
+    black:   '0x000000'
+    red:     '0xCC0000'
+    green:   '0x4E9A06'
+    yellow:  '0xC4A000'
+    blue:    '0x3465A4'
+    magenta: '0x75507B'
+    cyan:    '0x06989A'
+    white:   '0xD3D7CF'
+  bright:
+    black:   '0x555753'
+    red:     '0xEF2929'
+    green:   '0x8AE234'
+    yellow:  '0xFCE94F'
+    blue:    '0x729FCF'
+    magenta: '0xAD7FA8'
+    cyan:    '0x34E2E2'
+    white:   '0xEEEEEC'
+
+key_bindings:
+  - { key: Return, mods: Shift, action: SpawnNewInstance }

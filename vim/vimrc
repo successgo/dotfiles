@@ -1,0 +1,305 @@
+" Setup Plug ----------------------------------------{{{
+call plug#begin('~/.config/vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
+Plug 'jiangmiao/auto-pairs'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-sort-motion'
+Plug 'alvan/vim-closetag'
+Plug 'editorconfig/editorconfig-vim' "need editorconfig-core to be installed
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
+Plug 'chr4/nginx.vim'
+Plug 'ap/vim-buftabline'
+call plug#end()
+" }}}
+
+" System settings ----------------------------------------{{{
+set nocompatible
+set rtp+=~/.fzf
+runtime! plugin/sensible.vim
+scriptencoding utf-8
+filetype indent on
+filetype plugin on
+set number
+set hidden
+set mouse=a
+set ttyfast
+set autoread
+set hlsearch
+set wildmenu
+set incsearch
+set showmatch
+set smartcase
+set ignorecase
+set lazyredraw
+set splitbelow
+set splitright
+set visualbell
+set modelines=1
+set scrolloff=3
+set history=1000
+set noerrorbells
+set encoding=utf-8
+set backupcopy=yes
+set fillchars+=vert:┃
+set viewoptions=options,cursor,unix,slash
+set cursorline
+set colorcolumn=120
+
+" listchars {{{
+"set listchars=eol:$,tab:>-,trail:~,space:␣
+set nolist
+" }}}
+
+set undofile " Persist undo info in <FILENAME>.un~
+silent !mkdir ~/.vimundo >& /dev/null
+set undodir=~/.vimundo"
+
+" backups
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
+" Store temporary files in a central spot
+let vimtmp = $HOME . '/.tmp/' . getpid()
+silent! call mkdir(vimtmp, "p", 0700)
+let &backupdir = vimtmp
+let &directory = vimtmp
+
+" https://sunaku.github.io/vim-256color-bce.html
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    "   " render properly when inside 256-color tmux and GNU screen.
+    set t_ut=
+endif
+
+" Remember cursor position between vim sessions
+autocmd BufReadPost *
+            \ if line("'\"") > 1 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+set backspace=indent,eol,start     " backspace over everything in insert mode
+set ruler
+set showcmd
+set noshowmode
+set noswapfile
+set laststatus=2
+
+" Fix timeout problem
+set ttimeoutlen=0
+augroup FastEscape
+    autocmd!
+    au VimEnter * set timeoutlen=600
+    au InsertEnter * set timeoutlen=100
+    au InsertLeave * set timeoutlen=600
+augroup END
+
+set wrap
+set formatoptions=qrn1
+" Tabs
+set autoindent
+set smarttab
+set expandtab
+set shiftwidth=4
+set shiftround
+set softtabstop=4
+set tabstop=4
+set foldmethod=manual
+set nofoldenable
+set foldlevelstart=1
+set foldnestmax=10
+set wildignore+=*/.git/*,*/.svn/*,*/.hg/*
+
+" set leaderkey to SPACE, because spacebar is easy to press
+let mapleader = " "
+let localmapleader=","
+
+" AutoGroups
+augroup configgroup
+    autocmd!
+    autocmd VimEnter * highlight clear SignColumn
+    autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+    autocmd BufEnter Makefile setlocal noexpandtab
+    autocmd BufEnter *.sh setlocal tabstop=2
+    autocmd BufEnter *.sh setlocal shiftwidth=2
+    autocmd BufEnter *.sh setlocal softtabstop=2
+    autocmd BufEnter *.py setlocal tabstop=4
+    autocmd BufEnter *.md setlocal ft=markdown
+    autocmd FileType * normal zR
+augroup END
+" }}}
+
+" Sysmtem mappings {{{
+" nnoremap Q <nop>
+" map q <nop>
+inoremap <c-d> <esc>ddi
+
+" fast <esc>
+inoremap jk <esc>
+inoremap kj <esc>
+
+" forget arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+
+noremap <silent> k gk
+noremap <silent> j gj
+
+noremap H ^
+noremap L g_
+noremap J 5j
+noremap K 5k
+" this is the best, let me tell you why
+" how annoying is that everytime you want to do something in vim
+" you have to do shift-; to get :, can't we just do ;?
+" Plus what does ; do anyways??
+" if you do have a plugin that needs ;, you can just wap the mapping
+" nnoremap : ;
+" give it a try and you will like it
+nnoremap ; :
+inoremap <c-f> <c-x><c-f>
+
+" Align blocks of text and keep them selected
+vmap < <gv
+vmap > >gv
+
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>c :Commits<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>g :GFiles<cr>
+nnoremap <leader>w :Windows<cr>
+nnoremap <leader>h :nohlsearch<cr>
+nnoremap <leader>l :call ToggleNumber()<cr>
+nnoremap <leader>m :silent make\|redraw!\|cw<cr>
+nnoremap <leader>1 :set number!<cr>
+vmap <leader>y :w! /tmp/vimtmp<cr>
+nmap <leader>p :r! cat /tmp/vimtmp<cr>
+
+" Window Shortcuts {{{
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" }}}
+
+" Tabs Shortcuts {{{
+nnoremap th :tabfirst<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap tl :tablast<CR>
+nnoremap tt :tabedit<Space>
+nnoremap tn :tabnext<Space>
+nnoremap tm :tabm<Space>
+nnoremap td :tabclose<CR>
+" }}}
+" }}}
+
+" Theme ---------------------------------------- {{{
+syntax enable
+set background=dark
+colorscheme seoul256
+" }}}
+
+" Custom Functions {{{
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+
+function! FormatJSON()
+    :%!python -m json.tool
+endfunction
+" }}}
+
+" plug junegunn/vim-easy-align {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <leader>a <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <leader>a <Plug>(EasyAlign)
+" }}}
+
+" plug vim-php-cs-fixer {{{
+" If php-cs-fixer is in $PATH, you don't need to define line below
+"let g:php_cs_fixer_path='~/php-cs-fixer.phar' " define the path to the php-cs-fixer.phar
+"
+" If you use php-cs-fixer version 2.x
+let g:php_cs_fixer_rules='@PSR2'           " options: --rules (default:@PSR2)
+let g:php_cs_fixer_cache='.php_cs.cache'   " options: --cache-file
+let g:php_cs_fixer_config_file='.php_cs'   " options: --config
+" End of php-cs-fixer version 2 config params
+"
+let g:php_cs_fixer_php_path='php'               " Path to PHP
+let g:php_cs_fixer_enable_default_mapping=1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run=0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose=0                    " Return the output of command if 1, else an inline information.
+nnoremap <silent> <leader>pcf :call PhpCsFixerFixFile()<CR><CR>
+" }}}
+
+" plug stanangeloff/php.vim {{{
+let g:PHP_removeCRwhenUnix=1
+let g:PHP_vintage_case_default_indent=1
+function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+endfunction
+augroup phpSyntaxOverride
+    autocmd!
+    autocmd FileType php call PhpSyntaxOverride()
+augroup END
+" }}}
+
+" plug lightline and ale-lightline {{{
+let g:ale_set_loclist = 1
+let g:ale_open_list = 1
+let g:ale_list_window_size = 6
+let g:lightline = {
+            \ 'colorscheme': 'seoul256',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \               [ 'readonly', 'filename', 'modified' ] ],
+            \   'right': [ [ 'lineinfo' ],
+            \               [ 'percent' ] ]
+            \ }
+            \ }
+" }}}
+
+" plug ale {{{
+let g:ale_linters = {
+            \ 'php': ['php', 'phpcs', 'phpstan'],
+            \ }
+let g:ale_fixers = {
+            \ 'php': ['phpcbf'],
+            \ }
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '%s <%severity%> [%linter%]'
+let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_php_phpcbf_standard = 'PSR2'
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_fix_on_save = 0
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0

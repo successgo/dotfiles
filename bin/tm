@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# fast attach session TARGET_SESSION, and create it if needed
+
+TARGET_SESSION=$1
+
+if [[ -z $TARGET_SESSION ]]; then
+    TARGET_SESSION='new'
+fi
+
+tmux a -t $TARGET_SESSION 2>/dev/null \
+    || tmux switch-client -t $TARGET_SESSION 2>/dev/null \
+    || tmux new-session -s $TARGET_SESSION 2>/dev/null
