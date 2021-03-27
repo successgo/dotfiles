@@ -19,55 +19,54 @@ export KEYTIMEOUT=1
 # make man window not too long and not too short
 export MANWIDTH=100
 
-# we need reset PATH and init
-unset PATH
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+# reset path
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 
-# some useful binary tools and shell scripts at $HOME/.bin
-if [[ -d $HOME/.bin ]]; then
-  export PATH=$HOME/.bin:$PATH
+# home bin
+if [[ -d $HOME/bin ]]; then
+  export PATH=$PATH:$HOME/bin
 fi
 
 # composer vendor bin
 if [[ -d $HOME/.config/composer/vendor/bin ]]; then
-  export PATH=$HOME/.config/composer/vendor/bin:$PATH
+  export PATH=$PATH:$HOME/.config/composer/vendor/bin
 fi
 
-# composer macOS
+# composer vendor bin for macOS
 if [[ -d $HOME/.composer/vendor/bin ]]; then
-  export PATH=$HOME/.composer/vendor/bin:$PATH
+  export PATH=$PATH:$HOME/.composer/vendor/bin
 fi
 
 # symfony bin
 if [[ -d $HOME/.symfony/bin ]]; then
-  export PATH=$HOME/.symfony/bin:$PATH
+  export PATH=$PATH:$HOME/.symfony/bin
 fi
 
 # cargo bin
 if [[ -d $HOME/.cargo/bin ]]; then
-  export PATH=$HOME/.cargo/bin:$PATH
+  export PATH=$PATH:$HOME/.cargo/bin
 fi
 
 # nodejs bin
 if [[ -d /opt/node ]]; then
-  export PATH=/opt/node/bin:$PATH
+  export PATH=$PATH:/opt/node/bin
 fi
 
 # JDK bin
 if [[ -d /opt/jdk ]]; then
   export JAVA_HOME=/opt/jdk
-  export PATH=$JAVA_HOME/bin:$PATH
+  export PATH=$PATH:$JAVA_HOME/bin
 fi
 
 # go bin
 if [[ -d /opt/go ]]; then
-  export PATH=/opt/go/bin:$PATH
+  export PATH=$PATH:/opt/go/bin
 fi
 
 # GOPATH
-if [[ -d ~/go ]]; then
+if [[ -d $HOME/go ]]; then
   export GOPATH=~/go
-  export PATH=$GOPATH/bin:$PATH
+  export PATH=$PATH:$GOPATH/bin
 fi
 
 # make special love for macOS
@@ -92,6 +91,12 @@ if [[ `uname -s` = 'Darwin' ]]; then
     export GO_HOME=/usr/local/go
     export PATH=$GO_HOME/bin:$PATH
   fi
+fi
+
+# jetbrains ide
+if [[ -d $HOME/.jetbrains/phpstorm ]]; then
+  export PHPSTORM_HOME=$HOME/.jetbrains/phpstorm
+  export PATH=$PATH:$PHPSTORM_HOME/bin
 fi
 
 # unset http proxy for sure on bootstrap and use them as need

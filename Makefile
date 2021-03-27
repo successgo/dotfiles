@@ -37,7 +37,7 @@ install-sh:
 install-gitconfig:
 	cp .gitconfig ~
 install-bin:
-	cp -rp bin/* ~/.bin
+	cp -rp bin/* ~/bin
 install-alacritty:
 	cp -r alacritty ~/.config
 install-xsessionrc:
