@@ -14,6 +14,7 @@ help:
 	@echo "  make install-xsessionrc"
 	@echo "  make install-autostart"
 	@echo "  make install-ssh"
+	@echo "  make install-desktop"
 install-fontconfig:
 	cp -r fontconfig ~/.config
 install-sway:
@@ -46,3 +47,5 @@ install-autostart:
 	cp -p autostart/* ~/.config/autostart
 install-ssh:
 	cp ssh/config ~/.ssh
+install-desktop:
+	cp desktop.d/*.desktop ~/.local/share/applications/
