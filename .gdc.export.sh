@@ -27,6 +27,11 @@ if [[ -d $HOME/bin ]]; then
   export PATH=$PATH:$HOME/bin
 fi
 
+# dotnet tools
+if [[ -d $HOME/.dotnet/tools ]]; then
+  export PATH=$PATH:$HOME/.dotnet/tools
+fi
+
 # composer vendor bin
 if [[ -d $HOME/.config/composer/vendor/bin ]]; then
   export PATH=$PATH:$HOME/.config/composer/vendor/bin
