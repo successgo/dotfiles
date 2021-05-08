@@ -20,7 +20,8 @@ export KEYTIMEOUT=1
 export MANWIDTH=100
 
 # reset path
-export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+# for macOS: /usr/local/bin better be in front of /bin
+export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin
 
 # home bin
 if [[ -d $HOME/bin ]]; then
