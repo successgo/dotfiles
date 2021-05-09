@@ -37,6 +37,7 @@ install-sh:
 	cp .zshrc ~
 install-gitconfig:
 	cp .gitconfig ~
+	cp .gitignore_global ~
 install-bin:
 	cp -rp bin/* ~/bin
 install-alacritty:
