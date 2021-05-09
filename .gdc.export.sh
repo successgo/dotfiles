@@ -64,6 +64,12 @@ if [[ -d /opt/jdk ]]; then
   export PATH=$PATH:$JAVA_HOME/bin
 fi
 
+# DotNET SDK
+if [[ -d $HOME/dotnet ]]; then
+  export DOTNET_ROOT=$HOME/dotnet
+  export PATH=$PATH:$DOTNET_ROOT
+fi
+
 # go bin
 if [[ -d /opt/go ]]; then
   export PATH=$PATH:/opt/go/bin
