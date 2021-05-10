@@ -6,7 +6,7 @@ DISABLE_AUTO_UPDATE="true"
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="false"
 DISABLE_UNTRACKED_FILES_DIRTY="false"
-plugins=(kubectl minikube)
+plugins=(dotnet kubectl minikube)
 source $ZSH/oh-my-zsh.sh
 
 # Have a nice day!
