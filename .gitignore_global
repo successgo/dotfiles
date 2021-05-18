@@ -1,1 +1,5 @@
+# JetBrains IDE config directory per project
 .idea
+
+# Visual Studio Code
+.vscode
