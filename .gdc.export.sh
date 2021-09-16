@@ -28,6 +28,10 @@ if [[ -d $HOME/bin ]]; then
   export PATH=$PATH:$HOME/bin
 fi
 
+# dotnet sdk
+if [[ -d $HOME/dotnet ]]; then
+  export PATH=$PATH:$HOME/dotnet
+fi
 # dotnet tools
 if [[ -d $HOME/.dotnet/tools ]]; then
   export PATH=$PATH:$HOME/.dotnet/tools
