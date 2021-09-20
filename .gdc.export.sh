@@ -88,6 +88,10 @@ if [[ `uname -s` = 'Darwin' ]]; then
   if [[ -d /usr/local/opt/curl ]]; then
     export PATH=/usr/local/opt/curl/bin:$PATH
   fi
+  if [[ -d /usr/local/opt/openjdk ]]; then
+    export JAVA_HOME=/usr/local/opt/openjdk
+    export PATH=$JAVA_HOME/bin:$PATH
+  fi
 fi
 
 # jetbrains ide
