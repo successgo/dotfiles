@@ -94,12 +94,6 @@ if [[ `uname -s` = 'Darwin' ]]; then
   fi
 fi
 
-# jetbrains ide
-if [[ -d $HOME/.jetbrains/phpstorm ]]; then
-  export PHPSTORM_HOME=$HOME/.jetbrains/phpstorm
-  export PATH=$PATH:$PHPSTORM_HOME/bin
-fi
-
 # Unset http proxy for sure on bootstrap and use them as need
 unset {http_proxy,https_proxy,no_proxy}
 unset {HTTP_PROXY,HTTPS_PROXY,NO_PROXY}
