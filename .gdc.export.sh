@@ -67,6 +67,9 @@ fi
 if [[ -d /opt/go/bin ]]; then
   export PATH=$PATH:/opt/go/bin
 fi
+if [[ -d /usr/local/go ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
 # Set GOPATH
 if [[ -d $HOME/go ]]; then
   export GOPATH=$HOME/go
