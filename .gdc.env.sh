@@ -23,7 +23,7 @@ export MANWIDTH=100
 # for macOS: /usr/local/bin would better be in front of /bin
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin
 
-# Add home bin
+# Add user global bin
 if [[ -d $HOME/bin ]]; then
   export PATH=$PATH:$HOME/bin
 fi
@@ -42,13 +42,7 @@ if [[ -d $HOME/.symfony/bin ]]; then
   export PATH=$PATH:$HOME/.symfony/bin
 fi
 
-# Add JDK and it's bin for local install
-if [[ -d /opt/jdk ]]; then
-  export JAVA_HOME=/opt/jdk
-  export PATH=$PATH:$JAVA_HOME/bin
-fi
-
-# Add dotnet sdk and it's bin for local install
+# Add dotnet for home
 if [[ -d $HOME/dotnet ]]; then
   export DOTNET_ROOT=$HOME/dotnet
   export PATH=$PATH:$HOME/dotnet
@@ -58,17 +52,15 @@ if [[ -d $HOME/.dotnet/tools ]]; then
   export PATH=$PATH:$HOME/.dotnet/tools
 fi
 
-# Add go sdk and it's bin for local install
+# Add go for /usr/local
 if [[ -d /usr/local/go/bin ]]; then
   export GO_HOME=/usr/local/go
   export PATH=$PATH:$GO_HOME/bin
 fi
-# Add go sdk and it's bin for local install
+# Add go for /opt
 if [[ -d /opt/go/bin ]]; then
-  export PATH=$PATH:/opt/go/bin
-fi
-if [[ -d /usr/local/go ]]; then
-  export PATH=$PATH:/usr/local/go/bin
+  export GO_HOME=/opt/go
+  export PATH=$PATH:$GO_HOME/bin
 fi
 # Set GOPATH
 if [[ -d $HOME/go ]]; then
@@ -76,12 +68,18 @@ if [[ -d $HOME/go ]]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
-# Add cargo bin
+# Add cargo
 if [[ -d $HOME/.cargo/bin ]]; then
   export PATH=$PATH:$HOME/.cargo/bin
 fi
 
-# Add nodejs bin for local install
+# Add JDK for /opt
+if [[ -d /opt/jdk ]]; then
+  export JAVA_HOME=/opt/jdk
+  export PATH=$PATH:$JAVA_HOME/bin
+fi
+
+# Add nodejs for /opt
 if [[ -d /opt/node ]]; then
   export PATH=$PATH:/opt/node/bin
 fi
