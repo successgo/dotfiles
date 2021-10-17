@@ -25,63 +25,63 @@ export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin
 
 # Add user global bin
 if [[ -d $HOME/bin ]]; then
-  export PATH=$PATH:$HOME/bin
+  export PATH=$HOME/bin:$PATH
 fi
 
 # Add composer global vendor bin for linux
 if [[ -d $HOME/.config/composer/vendor/bin ]]; then
-  export PATH=$PATH:$HOME/.config/composer/vendor/bin
+  export PATH=$HOME/.config/composer/vendor/bin:$PATH
 fi
 # Add composer global vendor bin for macOS
 if [[ -d $HOME/.composer/vendor/bin ]]; then
-  export PATH=$PATH:$HOME/.composer/vendor/bin
+  export PATH=$HOME/.composer/vendor/bin:$PATH
 fi
 
 # Add symfony bin
 if [[ -d $HOME/.symfony/bin ]]; then
-  export PATH=$PATH:$HOME/.symfony/bin
+  export PATH=$HOME/.symfony/bin:$PATH
 fi
 
 # Add dotnet for home
 if [[ -d $HOME/dotnet ]]; then
   export DOTNET_ROOT=$HOME/dotnet
-  export PATH=$PATH:$HOME/dotnet
+  export PATH=$HOME/dotnet:$PATH
 fi
 # Add dotnet tools
 if [[ -d $HOME/.dotnet/tools ]]; then
-  export PATH=$PATH:$HOME/.dotnet/tools
+  export PATH=$HOME/.dotnet/tools:$PATH
 fi
 
 # Add go for /usr/local
 if [[ -d /usr/local/go/bin ]]; then
   export GO_HOME=/usr/local/go
-  export PATH=$PATH:$GO_HOME/bin
+  export PATH=$GO_HOME/bin:$PATH
 fi
 # Add go for /opt
 if [[ -d /opt/go/bin ]]; then
   export GO_HOME=/opt/go
-  export PATH=$PATH:$GO_HOME/bin
+  export PATH=$GO_HOME/bin:$PATH
 fi
 # Set GOPATH
 if [[ -d $HOME/go ]]; then
   export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
+  export PATH=$GOPATH/bin:$PATH
 fi
 
 # Add cargo
 if [[ -d $HOME/.cargo/bin ]]; then
-  export PATH=$PATH:$HOME/.cargo/bin
+  export PATH=$HOME/.cargo/bin:$PATH
 fi
 
 # Add JDK for /opt
 if [[ -d /opt/jdk ]]; then
   export JAVA_HOME=/opt/jdk
-  export PATH=$PATH:$JAVA_HOME/bin
+  export PATH=$JAVA_HOME/bin:$PATH
 fi
 
 # Add nodejs for /opt
 if [[ -d /opt/node ]]; then
-  export PATH=$PATH:/opt/node/bin
+  export PATH=/opt/node/bin:$PATH
 fi
 
 # Overwrite default install for macOS
