@@ -84,6 +84,11 @@ if [[ -d /opt/node ]]; then
   export PATH=/opt/node/bin:$PATH
 fi
 
+# Add jaeger tracing
+if [[ -d /usr/loca/jaeger ]]; then
+  export PATH=/usr/loca/jaeger:$PATH
+fi
+
 # Overwrite default install for macOS
 if [[ `uname -s` = 'Darwin' ]]; then
   if [[ -d /usr/local/opt/curl ]]; then
