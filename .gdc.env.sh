@@ -84,9 +84,13 @@ if [[ -d /opt/node ]]; then
   export PATH=/opt/node/bin:$PATH
 fi
 
-# Add jaeger tracing
-if [[ -d /usr/loca/jaeger ]]; then
-  export PATH=/usr/loca/jaeger:$PATH
+# Add jaeger tracing for /usr/local
+if [[ -d /usr/local/jaeger ]]; then
+  export PATH=/usr/local/jaeger:$PATH
+fi
+# Add jaeger tracing for /opt
+if [[ -d /opt/jaeger ]]; then
+  export PATH=/opt/jaeger:$PATH
 fi
 
 # Overwrite default install for macOS
