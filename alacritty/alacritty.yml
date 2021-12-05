@@ -1,6 +1,6 @@
 window:
   startup_mode: Maximized
-  decorations: Buttonless
+  decorations: None
 
 font:
   size: 12.0
