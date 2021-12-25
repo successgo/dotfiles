@@ -1,6 +1,24 @@
 window:
-  startup_mode: Maximized
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #   - Full: Borders and title bar
+  #   - None: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #   - Transparent: Title bar, transparent background and title bar buttons
+  #   - Buttonless: Title bar, transparent background and no title bar buttons
   decorations: None
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullScreen
+  startup_mode: Maximized
 
 font:
   size: 12.0
@@ -8,7 +26,7 @@ font:
 colors:
   cursor:
     text: '#000000'
-    cursor: '#f79800'
+    cursor: '#D3D7CF'
   normal:
     black:   '#000000'
     red:     '#CC0000'
