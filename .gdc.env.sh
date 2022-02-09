@@ -93,6 +93,11 @@ if [[ -d /opt/jaeger ]]; then
   export PATH=/opt/jaeger:$PATH
 fi
 
+# Add homebrew on linux
+if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+fi
+
 # Overwrite default install for macOS
 if [[ `uname -s` = 'Darwin' ]]; then
   if [[ -d /usr/local/opt/curl ]]; then
