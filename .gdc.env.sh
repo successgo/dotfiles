@@ -37,11 +37,6 @@ if [[ -d $HOME/.composer/vendor/bin ]]; then
   export PATH=$HOME/.composer/vendor/bin:$PATH
 fi
 
-# Add symfony bin
-if [[ -d $HOME/.symfony/bin ]]; then
-  export PATH=$HOME/.symfony/bin:$PATH
-fi
-
 # Add dotnet for home
 if [[ -d $HOME/dotnet ]]; then
   export DOTNET_ROOT=$HOME/dotnet
