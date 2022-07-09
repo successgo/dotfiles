@@ -42,6 +42,11 @@ if [[ -d $HOME/dotnet ]]; then
   export DOTNET_ROOT=$HOME/dotnet
   export PATH=$HOME/dotnet:$PATH
 fi
+# Add dotnet for global
+if [[ -d /usr/share/dotnet ]]; then
+  export DOTNET_ROOT=/usr/share/dotnet
+  export PATH=$DOTNET_ROOT:$PATH
+fi
 # Add dotnet tools
 if [[ -d $HOME/.dotnet/tools ]]; then
   export PATH=$HOME/.dotnet/tools:$PATH
