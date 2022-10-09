@@ -21,6 +21,9 @@ window:
   startup_mode: Maximized
 
 font:
+  normal:
+    family: Menlo
+    style: Regular
   size: 14.0
   offset:
     x: 0
