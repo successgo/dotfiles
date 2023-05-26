@@ -10,13 +10,13 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global
-	quotePath = false
-	commitGraph = true
+    quotePath = false
+    commitGraph = true
 [push]
     default = simple
 [init]
     templatedir =
-	defaultBranch = master
+    defaultBranch = master
 [merge]
     renamelimit = 2415
 [alias]
@@ -33,10 +33,10 @@
 [pull]
     ff = only
 [receive]
-	advertisePushOptions = true
-	procReceiveRefs = refs/for
+    advertisePushOptions = true
+    procReceiveRefs = refs/for
 [gc]
-	writeCommitGraph = true
+    writeCommitGraph = true
 
 [includeIf "gitdir:~/Projects/wisder/"]
     path = ~/.gitconfig.wisder
