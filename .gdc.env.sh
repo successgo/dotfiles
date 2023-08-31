@@ -23,6 +23,11 @@ export MANWIDTH=100
 # for macOS: /usr/local/bin would better be in front of /bin
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin
 
+# Add gnu coreutils on macOS
+if [[ -d /usr/local/opt/coreutils/libexec/gnubin ]]; then
+  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+fi
+
 # Add user global bin
 if [[ -d $HOME/bin ]]; then
   export PATH=$HOME/bin:$PATH
@@ -41,11 +46,6 @@ fi
 if [[ -d $HOME/dotnet ]]; then
   export DOTNET_ROOT=$HOME/dotnet
   export PATH=$HOME/dotnet:$PATH
-fi
-# Add dotnet for global
-if [[ -d /usr/share/dotnet ]]; then
-  export DOTNET_ROOT=/usr/share/dotnet
-  export PATH=$DOTNET_ROOT:$PATH
 fi
 # Add dotnet tools
 if [[ -d $HOME/.dotnet/tools ]]; then
@@ -91,11 +91,6 @@ fi
 # Add jaeger tracing for /opt
 if [[ -d /opt/jaeger ]]; then
   export PATH=/opt/jaeger:$PATH
-fi
-
-# Add homebrew on linux
-if [[ -d /home/linuxbrew/.linuxbrew ]]; then
-  export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 fi
 
 # Overwrite default install for macOS
