@@ -23,11 +23,6 @@ export MANWIDTH=100
 # for macOS: /usr/local/bin would better be in front of /bin
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin
 
-# Add gnu coreutils on macOS
-if [[ -d /usr/local/opt/coreutils/libexec/gnubin ]]; then
-  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-fi
-
 # Add user global bin
 if [[ -d $HOME/bin ]]; then
   export PATH=$HOME/bin:$PATH
