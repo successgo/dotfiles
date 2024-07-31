@@ -28,6 +28,11 @@ if [[ -d $HOME/bin ]]; then
   export PATH=$HOME/bin:$PATH
 fi
 
+# Add brew
+if [[ -d /opt/homebrew/bin ]]; then
+  export PATH=/opt/homebrew/bin:$PATH
+fi
+
 # Add composer global vendor bin for linux
 if [[ -d $HOME/.config/composer/vendor/bin ]]; then
   export PATH=$HOME/.config/composer/vendor/bin:$PATH
