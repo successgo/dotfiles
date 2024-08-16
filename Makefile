@@ -41,6 +41,8 @@ install-bin:
 	cp -rp bin/* ~/bin
 install-alacritty:
 	cp -r alacritty ~/.config
+install-rio:
+	cp -r rio ~/.config
 install-xsessionrc:
 	cp -p .xsessionrc ~
 install-autostart:
