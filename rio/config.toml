@@ -1,5 +1,6 @@
-cursor = '▇'
-blinking-cursor = false
+[cursor]
+shape = 'block'
+blinking = false
 
 [window]
 width = 800
