@@ -34,6 +34,7 @@ install-rofi:
 install-sh:
 	cp .gdc.* ~
 	cp .zshrc ~
+	cp oh-my-zsh/themes/dacheng.zsh-theme ~/.oh-my-zsh/themes/
 install-gitconfig:
 	cp .gitconfig ~
 	cp .gitignore_global ~
