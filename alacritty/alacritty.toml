@@ -1,12 +1,17 @@
-[colors.bright]
-black = "#555753"
-blue = "#729FCF"
-cyan = "#34E2E2"
-green = "#8AE234"
-magenta = "#AD7FA8"
-red = "#EF2929"
-white = "#EEEEEC"
-yellow = "#FCE94F"
+[window]
+decorations = "Full"
+startup_mode = "Maximized"
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "Menlo"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 0
 
 [colors.cursor]
 cursor = "#D3D7CF"
@@ -22,22 +27,27 @@ red = "#CC0000"
 white = "#D3D7CF"
 yellow = "#C4A000"
 
-[font]
-size = 14.0
+[colors.bright]
+black = "#555753"
+blue = "#729FCF"
+cyan = "#34E2E2"
+green = "#8AE234"
+magenta = "#AD7FA8"
+red = "#EF2929"
+white = "#EEEEEC"
+yellow = "#FCE94F"
 
-[font.normal]
-family = "Menlo"
-style = "Regular"
-
-[font.offset]
-x = 1
-y = 0
+[colors.dim]
+black = "#000000"
+blue = "#3465A4"
+cyan = "#06989A"
+green = "#4E9A06"
+magenta = "#75507B"
+red = "#CC0000"
+white = "#D3D7CF"
+yellow = "#C4A000"
 
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "Return"
 mods = "Shift"
-
-[window]
-decorations = "Full"
-startup_mode = "Maximized"
