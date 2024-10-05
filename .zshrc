@@ -12,10 +12,5 @@ source $ZSH/oh-my-zsh.sh
 # load my own shell script entry
 [ -f ~/.gdc.sh ] && source ~/.gdc.sh
 
-# output zsh version
-zsh --version
-
-# below are coming from 3rd party:
-
 # load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
