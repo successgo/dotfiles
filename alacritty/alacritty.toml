@@ -30,7 +30,7 @@ family = "Menlo"
 style = "Regular"
 
 [font.offset]
-x = 0
+x = 1
 y = 0
 
 [[keyboard.bindings]]
