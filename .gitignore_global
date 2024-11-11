@@ -3,3 +3,6 @@
 
 # Visual Studio Code
 .vscode
+
+# compiledb
+compile_commands.json
