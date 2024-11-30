@@ -52,6 +52,12 @@ if [[ -d $HOME/.dotnet/tools ]]; then
   export PATH=$HOME/.dotnet/tools:$PATH
 fi
 
+# Add flutter
+if [[ -d $HOME/flutter ]]; then
+  export FLUTTER_ROOT=$HOME/flutter
+  export PATH=$HOME/flutter/bin:$PATH
+fi
+
 # Add go for /usr/local
 if [[ -d /usr/local/go/bin ]]; then
   export GO_HOME=/usr/local/go
