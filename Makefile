@@ -24,6 +24,7 @@ install-xresource:
 install-tmux:
 	cp .tmux.conf ~/
 	cp .tmux.conf.local ~/
+	cp .tmux.conf.old ~/
 install-nvim: install-vim
 	cp -r nvim ~/.config/
 install-vim:
