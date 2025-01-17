@@ -1,6 +1,6 @@
 # forked from: robbyrussell
 
-PROMPT="%{$fg[green]%}sh %c %(?:%{$fg[white]%}%1{$%}:%{$fg[red]%}%1{$%})%{$reset_color%} "
+PROMPT="%{$fg[green]%}sh %c %(?:%1{$%}:%{$fg[red]%}%1{$%})%{$reset_color%} "
 
 # Placeholders:
 # %c just current directory
