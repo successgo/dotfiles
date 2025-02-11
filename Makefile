@@ -22,9 +22,7 @@ install-xresource:
 	cp .Xresources ~/
 	cp .Xresources ~/.Xdefaults
 install-tmux:
-	cp .tmux.conf ~/
-	cp .tmux.conf.local ~/
-	cp .tmux.conf.short ~/
+	cp -r tmux ~/.config/
 install-nvim: install-vim
 	cp -r nvim ~/.config/
 install-vim:
