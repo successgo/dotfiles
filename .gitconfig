@@ -1,6 +1,6 @@
 [user]
-    name = Dacheng Gao
-    email = successgdc@gmail.com
+	name = Dacheng Gao
+	email = successgdc@gmail.com
 [color]
     ui = true
     status = auto
@@ -9,29 +9,32 @@
     algorithm = patience
 [core]
     editor = nvim
-    excludesfile = ~/.gitignore_global
     quotePath = false
     commitGraph = true
-[push]
-    default = simple
+    excludesfile = ~/.gitignore.global
 [init]
     templatedir =
     defaultBranch = master
+[commit]
+	gpgsign = false
+[pull]
+    ff = only
+[push]
+    default = simple
 [merge]
     renamelimit = 2415
+[tag]
+	gpgsign = false
+[gpg]
+	format = openpgp
 [alias]
     s = status --short
-    l = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     co = checkout
-    gl = log --graph --pretty=format:'%Cred%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    wtf = "! git log --pretty=tformat:\"%C(auto,yellow)%h%C(auto)%d%C(auto,reset) by %C(auto,blue)%cn%C(auto,reset), %C(auto,cyan)%ar%C(auto,reset)%n %s%n\" --stat"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-[pull]
-    ff = only
 [receive]
     advertisePushOptions = true
     procReceiveRefs = refs/for
